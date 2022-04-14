@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Pawva</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -10,8 +10,87 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      
     </head>
     <body>
-      <h1>Browser Template</h1>
+
+    <section id="container1">
+
+      <h1>Sign Up</h1>
+        <form id="signUp">
+          <input class="sign-up" name="credentials[email]" type="text" placeholder="an@example.email">
+          <input class="sign-up" name="credentials[password]" type="password" placeholder="enter password">
+          <input class="sign-up" name="credentials[password_confirmation]" type="password" placeholder="re-enter password">
+        
+          <button type="submit">Sign Up</button>
+          <p id="sign-up-message"></p>
+        </form>
+
+
+      <h1>Sign In</h1>
+        <form id="signIn">
+          <input class="sign-in" name="credentials[email]" type="text">
+          <input class="sign-in" name="credentials[password]" type="password">
+          <button type="submit">Sign In</button>
+          <p id="sign-in-message"></p>
+        
+        </form>
+
+      <h1>Sign Out</h1>
+
+      <button class="btn btn-rounded" id="signOut">Sign Out</button>
+      <p id="sign-out-message"></p>
+
+      <h1>Change Password</h1>
+        <form id="changePassword">
+          <input class="changePwd" name="passwords[old]" type="password" placeholder="old password">
+          <input class="changePwd" name="passwords[new]" type="password" placeholder="new password">
+          <button type="submit">Change Password</button>
+          <p id="change-password-message"></p>
+        </form>
+
+      </section>
+
+    <!-- Dog Profiles -->
+    <h1>Add Dog Profile</h1>
+    <p>Welcome to Pawva</p>
+    
+    <p>Enter your pup's info and let's get them moving</p>
+    <br>
+
+    <form id="createProfile">
+      <h3>Name</h3>
+        <input class="create-profile" name="dog[name]" type="text" placeholder="dog's name">
+
+      <h3>Birthday</h3>
+        <input class="create-profile" name="dog[age]" type="text" placeholder="dog's age">
+
+      <h3>Gender</h3>
+        <input class="create-profile" name="dog[gender]" type="text" placeholder="male/female">
+      
+      <h3>I'm a....</h3>
+      <input class="create-profile" name="dog[type]" type="text" placeholder="i.e. Labrador">
+      
+      <h3>Notes</h3>
+      <input class="create-profile" name="dog[notes]" type="text" placeholder="Little tidbits about your pup">
+
+      <button id="create-profile" type="submit">Add Profile</button>
+      <p id="create-profile-message"></p>
+
+    
+    </form>
+
+    <!-- VIEW ALL PROFILES-->
+    <h3>View All Profiles</h3>
+    <button id="all-profiles">All Profiles</button>
+
+
+    <!-- VIEW ONE PROFILE-->
+    <h3>View One Profile</h3>
+    <button id="view-profile">View Dog Profile</button>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     </body>
 </html>
