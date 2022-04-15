@@ -6,13 +6,18 @@ const dogEvents = require('./dogAuth/events.js')
 // require('./example')
 
 $(() => {
-  // $('#sign-out-message').hide()
+  $('#sign-in-container').hide()
+
   $('#signUp').on('submit', authEvents.onSignUp)
   $('#signIn').on('submit', authEvents.onSignIn)
   $('#signOut').on('click', authEvents.onSignOut)
   $('#changePassword').on('submit', authEvents.onChangePassword)
-  $('#create-profile').on('submit', dogEvents.onCreateProfile)
+  $('#createProfile').on('submit', dogEvents.onCreateProfile)
   $('#create-profile-message').on('submit', dogEvents.onCreateProfile)
   $('#all-profiles').on('click', dogEvents.onIndexProfiles)
-  $('#view-profile').on('click', dogEvents.onViewProfile)
+  // $('.update-profile-list').hide()
+  $('.update-profile-list').on('click', dogEvents.onDeleteProfile)
+  $('.delete-profile').on('click', dogEvents.onUpdateProfile)
 })
+
+// $('#view-profile').on('click', dogEvents.onViewProfile)
