@@ -45,9 +45,34 @@ const onChangePassword = (event) => {
     .catch(() => authUi.onChangePasswordFailure())
 }
 
+const onShowSignIn = () => {
+  $('#sign-in-container').show()
+}
+
+const onShowUpdateForm = () => {
+  $('#update-form').show()
+  $('#sign-in-container').hide()
+}
+const onShowAllProfiles = () => {
+  $('#all-profiles-page').show()
+}
+
+const onShowPWForm = () => {
+  $('#passwordForm').show()
+}
+
+const onShowHomePage = () => {
+  $('#home-page').show()
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onChangePassword
+  onChangePassword,
+  onShowSignIn,
+  onShowUpdateForm,
+  onShowAllProfiles,
+  onShowPWForm,
+  onShowHomePage
 }
