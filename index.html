@@ -14,7 +14,7 @@
     </head>
     <body>
 
-    <section id="container1">
+    <section id="sign-up-container">
 
       <h1>Sign Up</h1>
         <form id="signUp">
@@ -25,9 +25,11 @@
           <button type="submit">Sign Up</button>
           <p id="sign-up-message"></p>
         </form>
+    </section>
 
+<section id="sign-in-container">
 
-      <h1>Sign In</h1>
+      <h2>Sign In</h2>
         <form id="signIn">
           <input class="sign-in" name="credentials[email]" type="text">
           <input class="sign-in" name="credentials[password]" type="password">
@@ -36,12 +38,11 @@
         
         </form>
 
-      <h1>Sign Out</h1>
-
+      <!-- <h3>Sign Out</h3> -->
       <button class="btn btn-rounded" id="signOut">Sign Out</button>
       <p id="sign-out-message"></p>
 
-      <h1>Change Password</h1>
+      <h2>Change Password</h2>
         <form id="changePassword">
           <input class="changePwd" name="passwords[old]" type="password" placeholder="old password">
           <input class="changePwd" name="passwords[new]" type="password" placeholder="new password">
@@ -49,10 +50,10 @@
           <p id="change-password-message"></p>
         </form>
 
-      </section>
+    </section>
 
     <!-- Dog Profiles -->
-    <h1>Add Dog Profile</h1>
+    <h2>Add Profile</h2 >
     <p>Welcome to Pawva</p>
     
     <p>Enter your pup's info and let's get them moving</p>
@@ -74,7 +75,7 @@
       <h3>Notes</h3>
       <input class="create-profile" name="dog[notes]" type="text" placeholder="Little tidbits about your pup">
 
-      <button id="create-profile" type="submit">Add Profile</button>
+      <button type="submit" >Create Profile</button>
       <p id="create-profile-message"></p>
 
     
@@ -82,12 +83,19 @@
 
     <!-- VIEW ALL PROFILES-->
     <h3>View All Profiles</h3>
-    <button id="all-profiles">All Profiles</button>
+    <button id="all-profiles" type="submit">All Profiles</button>
+    <p id="view-all-profiles"></p>
 
 
-    <!-- VIEW ONE PROFILE-->
+    <!-- VIEW ONE PROFILE
     <h3>View One Profile</h3>
-    <button id="view-profile">View Dog Profile</button>
+    <div id="view-profile">
+    <button type="submit">View Dog Profile</button>
+    </div> -->
+
+    <p id="profile-update-message"></p>
+    <p id="profile-delete-message"></p>
+    <p id="error-message"></p>
     
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
