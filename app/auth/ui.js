@@ -6,16 +6,39 @@ const store = require('../store.js')
 const onSignUpSuccess = function () {
   $('#sign-up-message').show()
   $('#sign-up-message').html('<p>Thanks for signing up!</p>')
+  $('#sign-in-containergt').show()
+
+  $('#sign-up-message').addClass('success')
+
+  setTimeout(() => {
+    $('#sign-up-message').html('')
+    $('#sign-up-message').removeClass('success')
+  }, 5000)
+
+  $('#changePassword').show()
+  $('#sign-in-container').show()
   $('form').trigger('reset')
 }
 
 const onSignUpFailure = function (response) {
   $('#sign-up-message').html('<p>Error, please try again.</p>')
+  $('#sign-up-message').addClass('success')
+
+  setTimeout(() => {
+    $('#sign-up-message').html('')
+    $('#sign-up-message').removeClass('success')
+  }, 5000)
   $('form').trigger('reset')
 }
 
 const onSignInSuccess = function (response) {
   $('#sign-in-message').html('<p>Signed in successfully</p>')
+  $('#sign-in-message').addClass('success')
+
+  setTimeout(() => {
+    $('#sign-in-message').html('')
+    $('#sign-in-message').removeClass('success')
+  }, 5000)
   $('form').trigger('reset')
   store.user = response.user
   // $('#sign-in-success').show()
@@ -23,15 +46,25 @@ const onSignInSuccess = function (response) {
 
 const onSignInFailure = function () {
   $('#sign-in-message').html('<p>Sign in error, please try again!</p>')
+  $('#sign-in-message').addClass('success')
+
+  setTimeout(() => {
+    $('#sign-in-message').html('')
+    $('#sign-in-message').removeClass('success')
+  }, 5000)
   $('form').trigger('reset')
 }
 
 const onSignOutSuccess = function () {
-  // $('#sign-out-message').show()
   $('#sign-out-message').html('<p>You are signed out, !</p>')
+  $('#sign-out-message').addClass('success')
+
+  setTimeout(() => {
+    $('#sign-out-message').html('')
+    $('#sign-out-message').removeClass('success')
+  }, 5000)
   $('form').trigger('reset')
-  // $('#signOut').hide()
-  $('#login-button').show()
+  $('#sign-in-page').show()
 }
 
 const onSignOutFailure = function () {
