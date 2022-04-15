@@ -22,9 +22,10 @@
           <input class="sign-up" name="credentials[password]" type="password" placeholder="enter password">
           <input class="sign-up" name="credentials[password_confirmation]" type="password" placeholder="re-enter password">
         
-          <button type="submit">Sign Up</button>
+          <button type="submit" class="btn btn-outline-secondary btn-sm">Sign Up</button>
           <p id="sign-up-message"></p>
-        </form>
+          </form>
+          <button id="go-to-sign-in" type="click" class="btn btn-dark btn-sm">Already a User?</button>
     </section>
 
 <section id="sign-in-container">
@@ -33,32 +34,53 @@
         <form id="signIn">
           <input class="sign-in" name="credentials[email]" type="text">
           <input class="sign-in" name="credentials[password]" type="password">
-          <button type="submit">Sign In</button>
+          <button type="submit" class="btn btn-outline-secondary btn-sm">Sign In</button>
           <p id="sign-in-message"></p>
         
         </form>
+  </section>
 
       <!-- <h3>Sign Out</h3> -->
-      <button class="btn btn-rounded" id="signOut">Sign Out</button>
-      <p id="sign-out-message"></p>
+      <div id="sign-out-pwForm">
+          <button class="btn btn-outline-secondary btn-sm" id="signOut">Sign Out</button>
+          <p id="sign-out-message"></p>
+          
+      </div>
 
+      
+      <button id="passwordFormBtn" type="submit" class="btn btn-outline-secondary btn-sm">Change Password</button>
+      <br>
+      <button class="btn btn-outline-success btn-lg" id="go-homeBtn">Enter PAWVA</button>
+
+      <div id="passwordForm">
       <h2>Change Password</h2>
         <form id="changePassword">
           <input class="changePwd" name="passwords[old]" type="password" placeholder="old password">
           <input class="changePwd" name="passwords[new]" type="password" placeholder="new password">
-          <button type="submit">Change Password</button>
+          <button type="submit" class="btn btn-outline-secondary btn-sm">Save New Password</button>
           <p id="change-password-message"></p>
         </form>
+      </div>
 
-    </section>
+     
+
+     
+
 
     <!-- Dog Profiles -->
-    <h2>Add Profile</h2 >
-    <p>Welcome to Pawva</p>
-    
-    <p>Enter your pup's info and let's get them moving</p>
-    <br>
+    <section id="home-page">
+        <h1>PAWVA</h1 >
+        <p>strava for dogs</p>
 
+        <button id="go-to-add-profile" type="submit" class="btn btn-outline-secondary">Add New Profile</button>
+        <button id="all-profiles" type="submit" class="btn btn-outline-secondary">View All Profiles</button>
+
+    </section>
+      <br>
+      <br>
+    <section id="update-form">
+      <p>Let's Add Your Dog's Profile!</p>
+  
     <form id="createProfile">
       <h3>Name</h3>
         <input class="create-profile" name="dog[name]" type="text" placeholder="dog's name">
@@ -74,18 +96,22 @@
       
       <h3>Notes</h3>
       <input class="create-profile" name="dog[notes]" type="text" placeholder="Little tidbits about your pup">
-
-      <button type="submit" >Create Profile</button>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-outline-secondary btn-sm">Save New Profile</button>
       <p id="create-profile-message"></p>
-
-    
     </form>
+    </section>
+
 
     <!-- VIEW ALL PROFILES-->
-    <h3>View All Profiles</h3>
-    <button id="all-profiles" type="submit">All Profiles</button>
-    <p id="view-all-profiles"></p>
-
+    <section id="all-profiles-page">
+        <h3 id="view-all-profiles">All Profiles</h3>
+    
+        <p id="profile-update-message"></p>
+        <p id="profile-delete-message"></p>
+        <p id="error-message"></p>
+     </section>
 
     <!-- VIEW ONE PROFILE
     <h3>View One Profile</h3>
@@ -93,9 +119,7 @@
     <button type="submit">View Dog Profile</button>
     </div> -->
 
-    <p id="profile-update-message"></p>
-    <p id="profile-delete-message"></p>
-    <p id="error-message"></p>
+    
     
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
