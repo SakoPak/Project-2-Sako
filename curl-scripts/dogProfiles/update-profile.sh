@@ -11,7 +11,7 @@
 
 
 API="http://localhost:4741"
-URL_PATH="/dogProfile"
+URL_PATH="/dogProfiles"
 
 curl "${API}${URL_PATH}/${ID}" \
   --include \
