@@ -1,26 +1,62 @@
+'use strict'
+
+const config = require('./../config')
+const store = require('../store.js')
 
 const createProfile = function (data) {
   console.log(data)
   return $.ajax({
     method: 'POST',
-    url: 'http://localhost:4741/dogProfiles',
-    data: data
+    url: config.apiUrl + '/dogProfiles',
+    data: data,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
   })
 }
-
 
 const indexProfiles = function () {
   return $.ajax({
     method: 'GET',
-    url: 'http://localhost:4741/dogProfiles'
+    url: config.apiUrl + '/dogProfiles',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
   })
 }
 
+const viewProfile = function (id) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/dogProfiles/' + id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
 
+const updateProfile = function (id, formData) {
+  return $.ajax({
+    url: config.apiUrl + '/dogProfiles/' + id,
+    method: 'PATCH',
+    data: formData,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
 
+const deleteProfile = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/dogProfiles/' + id,
+    method: 'DELETE'
+  })
+}
 
 module.exports = {
   createProfile,
-  indexProfiles
-
+  indexProfiles,
+  viewProfile,
+  updateProfile,
+  deleteProfile
 }
