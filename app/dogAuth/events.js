@@ -33,31 +33,30 @@ const onViewProfile = (event) => {
 
   dogAuthApi
     .viewProfile(data.dog.id)
-    .then(dogAuthUi.onViewProfileSuccess)
+    .then(() => dogAuthUi.onViewProfileSuccess)
     .catch(() => dogAuthUi.onViewProfileFailure())
 }
 
 const onDeleteProfile = (event) => {
   event.preventDefault()
   console.log('Deleting profile in events.js')
-  const form = event.target
-  const data = getFormFields(form)
-  console.log(data)
-
+  const id = event.target.getAttribute('data-id')
   dogAuthApi
-    .deleteProfile(data.dog.id)
-    .then(() => dogAuthApi.onDeleteBookSuccess())
-    .catch(() => dogAuthApi.onDeleteBookFailure())
+    .deleteProfile(id)
+    .then(() => dogAuthUi.onDeleteProfileSuccess())
+    .catch(() => dogAuthUi.onDeleteProfileFailure())
 }
 
 const onUpdateProfile = function (event) {
   event.preventDefault()
   const formData = getFormFields(event.target)
-  const id = formData.dog.id
+  console.log(formData)
+
+  const id = event.target.getAttribute('data-id')
   dogAuthApi
-    .update(id, formData)
-    .then(dogAuthApi.onUpdateSuccess)
-    .catch(dogAuthApi.onError)
+    .updateProfile(id, formData)
+    .then(() => dogAuthUi.onUpdateProfileSuccess())
+    .catch(() => dogAuthUi.onUpdateProfileFailure)
 }
 
 module.exports = {
