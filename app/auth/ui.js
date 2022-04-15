@@ -6,8 +6,8 @@ const store = require('../store.js')
 const onSignUpSuccess = function () {
   $('#sign-up-message').show()
   $('#sign-up-message').html('<p>Thanks for signing up!</p>')
-  $('#sign-in-containergt').show()
-
+  $('#sign-up-container').hide()
+  $('#sign-in-container').show()
   $('#sign-up-message').addClass('success')
 
   setTimeout(() => {
@@ -16,7 +16,6 @@ const onSignUpSuccess = function () {
   }, 5000)
 
   $('#changePassword').show()
-  $('#sign-in-container').show()
   $('form').trigger('reset')
 }
 
@@ -33,6 +32,9 @@ const onSignUpFailure = function (response) {
 
 const onSignInSuccess = function (response) {
   $('#sign-in-message').html('<p>Signed in successfully</p>')
+  $('#sign-out-pwForm').show()
+  $('#passwordFormBtn').show()
+  $('#go-homeBtn').show()
   $('#sign-in-message').addClass('success')
 
   setTimeout(() => {
