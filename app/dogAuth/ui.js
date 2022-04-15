@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const dogEvents = require('./events.js')
 
 const onCreateProfileSuccess = function () {
   $('#create-profile-message').show()
@@ -33,6 +34,8 @@ const onViewProfileFailure = function () {
 }
 
 const onIndexProfileSuccess = function (response) {
+  $('#all-profiles-page').show()
+  $('#update-form').hide()
   const indexProfiles = response.dog
   console.log(response)
 
@@ -53,7 +56,7 @@ const onIndexProfileSuccess = function (response) {
                       </div>
 
                     <section class="update-profile-list">
-                    <h3>Need to update ${dog.name}'s profile? Fill out the form and click 'Update'! </h3> 
+                    <p>Need to update ${dog.name}'s profile? Fill out the form and click 'Update'! </p> 
                     
                       <form class="update-profile-list" data-id=${dog._id}>
                             <input name="dog[name]" type="text" placeholder="Dog Name" required>
@@ -61,11 +64,10 @@ const onIndexProfileSuccess = function (response) {
                             <input name="dog[gender]" type="text" placeholder="Gender" required>
                             <input name="dog[type]" type="text" placeholder="Labrador" required>
                             <input name="dog[notes]" type="text" placeholder="He likes to swim!" required>
-
-                        </form>
-                        <button type="submit" class="update-profile-list" data-id=${dog._id}>Update ${dog.name}'s profile </button>
+                        <button type="submit" class="update-button" data-id=${dog._id}>Update ${dog.name}'s profile </button>
+                      
+                      </form>
                         <button class="delete-profile" data-id=${dog._id}>Delete ${dog.name}'s Profile</button>
-                        
                     </section>
                         <br>
                     `
@@ -82,7 +84,7 @@ const onIndexProfileFailure = function () {
 
 const onUpdateProfileSuccess = function (response) {
   $('#profile-update-message').html('Edit successful!')
-  $('#view-all-profiles').html('Profiles have changed! Click "All Profiles" again to view all dog profiles.')
+  $('#view-all-profiles').html('Profiles have been updated! Click "All Profiles" again to view all dog profiles.')
 
   $('#profile-update-message').addClass('success')
   setTimeout(() => {
@@ -97,9 +99,11 @@ const onUpdateProfileFailure = function () {
   $('#error-message').text('Failure while trying to update profile.')
 }
 
-const onDeleteSuccess = function () {
+const onDeleteProfileSuccess = function () {
   $('#profile-delete-message').html('Profile successfully deleted.')
-  $('#view-all-profiles').html('Profiles have changed! Click "All Profiles" again to view all dog profiles.')
+  $('#view-all-profiles').html(
+    'Profiles have changed! Click "All Profiles" again to view all dog profiles.'
+  )
   $('#profile-delete-message').addClass('success')
 
   setTimeout(() => {
@@ -108,6 +112,10 @@ const onDeleteSuccess = function () {
   }, 5000)
 
   $('form').trigger('reset')
+}
+
+const onDeleteProfileFailure = function () {
+  $('#error-message').text('Failure while trying to delete profile.')
 }
 
 module.exports = {
@@ -119,5 +127,6 @@ module.exports = {
   onViewProfileFailure,
   onUpdateProfileSuccess,
   onUpdateProfileFailure,
-  onDeleteSuccess
+  onDeleteProfileSuccess,
+  onDeleteProfileFailure
 }
