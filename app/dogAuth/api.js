@@ -49,7 +49,10 @@ const updateProfile = function (id, formData) {
 const deleteProfile = function (id) {
   return $.ajax({
     url: config.apiUrl + '/dogProfiles/' + id,
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
   })
 }
 
