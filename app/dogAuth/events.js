@@ -20,7 +20,7 @@ const onIndexProfiles = () => {
   console.log('Indexing Profiles in event listener!!')
   dogAuthApi
     .indexProfiles()
-    .then((response) => dogAuthUi.onIndexProfileSuccess(response))
+    .then(dogAuthUi.onIndexProfileSuccess)
 
     .catch(() => dogAuthUi.onIndexProfileFailure())
 }
@@ -32,15 +32,38 @@ const onViewProfile = (event) => {
   console.log(data)
 
   dogAuthApi
-    .viewProfile(data)
-    .then((response) => dogAuthUi.onViewProfileSuccess(response))
+    .viewProfile(data.dog.id)
+    .then(dogAuthUi.onViewProfileSuccess)
     .catch(() => dogAuthUi.onViewProfileFailure())
 }
 
+const onDeleteProfile = (event) => {
+  event.preventDefault()
+  console.log('Deleting profile in events.js')
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data)
 
+  dogAuthApi
+    .deleteProfile(data.dog.id)
+    .then(() => dogAuthApi.onDeleteBookSuccess())
+    .catch(() => dogAuthApi.onDeleteBookFailure())
+}
+
+const onUpdateProfile = function (event) {
+  event.preventDefault()
+  const formData = getFormFields(event.target)
+  const id = formData.dog.id
+  dogAuthApi
+    .update(id, formData)
+    .then(dogAuthApi.onUpdateSuccess)
+    .catch(dogAuthApi.onError)
+}
 
 module.exports = {
   onCreateProfile,
   onIndexProfiles,
-  onViewProfile
+  onViewProfile,
+  onDeleteProfile,
+  onUpdateProfile
 }
