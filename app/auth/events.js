@@ -47,10 +47,18 @@ const onChangePassword = (event) => {
 
 const onShowSignIn = () => {
   $('#sign-in-container').show()
+  $('#go-to-sign-in2').hide()
+  $('#sign-up-container').hide()
+  $('#signUpBtn').hide()
+}
+
+const onShowSignUp = () => {
+  $('#sign-up-container').show()
+  $('.sign-up-btn').hide()
 }
 
 const onShowUpdateForm = () => {
-  $('#update-form').show()
+  $('#create-form').show()
   $('#sign-in-container').hide()
 }
 const onShowAllProfiles = () => {
@@ -63,6 +71,15 @@ const onShowPWForm = () => {
 
 const onShowHomePage = () => {
   $('#home-page').show()
+  $('#landing-page').hide()
+  $('#create-form').show()
+}
+
+const onSignOutAgain = function () {
+  authApi
+    .signOut()
+    .then(() => authUi.onSignOutAgainSuccess())
+    .catch(() => authUi.onSignOutAgainFailure())
 }
 
 module.exports = {
@@ -74,5 +91,7 @@ module.exports = {
   onShowUpdateForm,
   onShowAllProfiles,
   onShowPWForm,
-  onShowHomePage
+  onShowHomePage,
+  onShowSignUp,
+  onSignOutAgain
 }
