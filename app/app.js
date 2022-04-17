@@ -6,10 +6,13 @@ const dogEvents = require('./dogAuth/events.js')
 // require('./example')
 
 $(() => {
+  $('#sign-up-container').hide()
   $('#sign-in-container').hide()
-  $('#go-to-sign-in').on('click', authEvents.onShowSignIn)
+  $('#go-to-sign-in2').on('click', authEvents.onShowSignIn)
+  $('#signUpBtn').on('click', authEvents.onShowSignUp)
+
   $('#home-page').hide()
-  $('#update-form').hide()
+  $('#create-form').hide()
   $('#all-profiles-page').hide()
   $('#sign-out-pwForm').hide()
   $('#passwordForm').hide()
@@ -26,16 +29,10 @@ $(() => {
   $('#signOut').on('click', authEvents.onSignOut)
   $('#changePassword').on('submit', authEvents.onChangePassword)
   $('#createProfile').on('submit', dogEvents.onCreateProfile)
-  $('#create-profile-message').on('submit', dogEvents.onCreateProfile)
+  $('.create-profile-message').on('submit', dogEvents.onCreateProfile)
   $('#all-profiles').on('click', dogEvents.onIndexProfiles)
   $('#view-all-profiles').on('submit', '.update-profile-list', dogEvents.onUpdateProfile)
   $('#view-all-profiles').on('click', '.delete-profile',
-    dogEvents.onDeleteProfile
-  )
-
-  // $('.update-profile-list').hide()
-  // $('.update-button').on('submit', dogEvents.onUpdateProfile)
-  // $('.delete-profile').on('click', dogEvents.onDeleteProfile)
+    dogEvents.onDeleteProfile)
+  $('#sign-out-again').on('click', authEvents.onSignOutAgain)
 })
-
-// $('#view-profile').on('click', dogEvents.onViewProfile)
