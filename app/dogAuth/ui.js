@@ -4,8 +4,8 @@ const store = require('../store.js')
 const dogEvents = require('./events.js')
 
 const onCreateProfileSuccess = function () {
-  $('#create-profile-message').show()
-  $('#create-profile-message').html('<p>Profile has been created!</p>')
+  $('.create-profile-message').show()
+  $('.create-profile-message').html('<p>Profile has been created!</p>')
   $('form').trigger('reset')
 }
 
@@ -16,14 +16,52 @@ const onCreateProfileFailure = function () {
 const onViewProfileSuccess = function (response) {
   console.log(response)
   const profileHtml = `
-                      <div>
-                        '<li>' + ${response.dog.name} + '</li>'
-                        <p>${response.dog.name}</p>
-                        <p>${response.dog.gender}</p>
-                        <p>${response.dog.age}</p>
-                        <p>${response.dog.type}</p>
-                        <p>${response.dog.notes}</p>
-                      </div>
+                     <div class="row d-flex justify-content-center">
+                          <div class="col-md-10 col-xl-8 text-center">
+                            <h3 class="mb-4"></h3>
+                            <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+                            </p>
+                          </div>
+                        </div>
+                        <div class="row text-center">
+                          <div class="col-md-4 mb-5 mb-md-0">
+                            <div class="card testimonial-card">
+                              <div class="card-up" style="background-color: rgb(33, 158, 188);"></div>
+                              <div class="avatar mx-auto bg-white">
+                                <img src="../images/Dog.png" class="rounded-circle img-fluid" />
+                              </div>
+
+                              <div class="card-body">
+
+                              <form id="viewProfile">
+                                <h4 class="mb-4"></h4>
+                                <hr/>
+
+                                <p class="text-dark-grey mt-4">
+
+                                  <div id=${response.dog._id}>
+
+                                      <h4 class="mb-4">Name: ${response.dog.name}</h4> 
+                                      <hr />
+                                      <p class="dark-grey-text mt-4">
+                                        <div>
+                                          <p>Gender: ${response.dog.gender}</p>
+                                          <p>Birthday: ${response.dog.age}</p> 
+                                          <p>Type: ${response.dog.type}</p>
+                                          <p>Notes: ${response.dog.notes}</p> 
+                                        </div>
+                                      </p>      
+                                  </div>
+                                    <br>
+                                      <div class="card-footer">
+                                      <small class="text-muted"></small>
+                                      </div>
+                                </p>
+                              </form>
+                              
+                            </div>
+                          </div>
+                        </div>
                     `
   $('#view-profile').html(profileHtml)
   $('form').trigger('reset')
@@ -35,7 +73,7 @@ const onViewProfileFailure = function () {
 
 const onIndexProfileSuccess = function (response) {
   $('#all-profiles-page').show()
-  $('#update-form').hide()
+  $('#create-form').hide()
   const indexProfiles = response.dog
   console.log(response)
 
@@ -43,33 +81,98 @@ const onIndexProfileSuccess = function (response) {
 
   indexProfiles.forEach(dog => {
     profilesHtml += `
-                      <div id=${dog._id}>
-                    
-                       <h3>Name: ${dog.name}</h3> 
-                        <div>
-                          <p>Gender: ${dog.gender}</p>
-                          <p>Birthday: ${dog.age}</p> 
-                          <p>Type: ${dog.type}</p>
-                          <p>Notes: ${dog.notes}</p> 
+                    <div class="text-center justify-content-center text-grey bg-dark">
+                       <div class="row d-flex justify-content-center">
+                          <div class="col-md-10 col-xl-8 text-center">
+                            <h3 class="mb-4"></h3>
+                            <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+                            </p>
+                          </div>
                         </div>
-                    
-                      </div>
+                        <div class="row text-center">
+                          <div class="col-md-4 mb-5 mb-md-0">
+                            <div class="card testimonial-card">
+                              <div class="card-up" style="background-color: #E9B8AA;"></div>
+                              <div class="avatar mx-auto bg-white">
+                                <img src="../images/Dog.png" class="rounded-circle img-fluid" />
+                              </div>
 
+                              <div class="card-body text-dark">
+
+                              <form class="viewProfiles">
+                                <h4 class="mb-4">${dog.name}</h4>
+                                <hr/>
+
+                                <p class="dark-grey-text mt-4">
+
+                                  <div id=${dog._id}>
+                            
+                                     
+                                        <div>
+                                          <p>Gender: ${dog.gender}</p>
+                                          <p>Birthday: ${dog.age}</p> 
+                                          <p>Type: ${dog.type}</p>
+                                          <p>Notes: ${dog.notes}</p> 
+                                        </div>
+                                  
+                                    </div>
+                                    <br>
+                                     
+                                      
+                                  
+                                    </div>
+                                    </p>
+                                  </form>
+                              <p class="create-profile-message"></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      
+                      <!-- UPDATE PROFILE FORM -->
                     <section class="update-profile-list">
-                    <p>Need to update ${dog.name}'s profile? Fill out the form and click 'Update'! </p> 
-                    
-                      <form class="update-profile-list" data-id=${dog._id}>
-                            <input name="dog[name]" type="text" placeholder="Dog Name" required>
-                            <input name="dog[age]" type="text" placeholder="00/00/00" required>
-                            <input name="dog[gender]" type="text" placeholder="Gender" required>
-                            <input name="dog[type]" type="text" placeholder="Labrador" required>
-                            <input name="dog[notes]" type="text" placeholder="He likes to swim!" required>
-                        <button type="submit" class="update-button" data-id=${dog._id}>Update ${dog.name}'s profile </button>
+
+                     <div class="row d-flex justify-content-center">
+                          <div class="col-md-10 col-xl-8 text-center">
+                            <h3 class="mb-4"></h3>
+                            <p class="mb-4 pb-2 mb-md-5 pb-md-0"></p>                         
+                          </div>
+                      </div>
+                        <div class="row text-center">
+                          <div class="col-md-4 mb-5 mb-md-0"> 
+                            <div class="card testimonial-card">
+                              <div class="card-up" style="background-color:#5A95F3;"></div>
+                              <div class="avatar mx-auto bg-white">
+                                <img src="../images/Dog.png" class="rounded-circle img-fluid" />
+                              </div>
+                              <div class="card-body">
+
+                            <form class="update-profile-list" data-id=${dog._id}>
+
+                                <hr/>
+
+                                <p class="dark-grey-text mt-4"></p>
+
+                                  <div id=${dog._id}>
+                            
+                                      <input name="dog[name]" type="text" placeholder="Dog Name" required>
+                                      <input name="dog[age]" type="text" placeholder="00/00/00" required>
+                                      <input name="dog[gender]" type="text" placeholder="Gender" required>
+                                      <input name="dog[type]" type="text" placeholder="Labrador" required>
+                                      <textarea name="dog[notes]" type="text" placeholder="Notes"></textarea>
+                                    <button type="submit" class="update-button btn btn-outline-secondary" style="background-color:#5A95F3" data-id=${dog._id}>Update ${dog.name}'s profile </button>
                       
-                      </form>
-                        <button class="delete-profile" data-id=${dog._id}>Delete ${dog.name}'s Profile</button>
-                    </section>
-                        <br>
+                              </form>
+                              <button class="delete-profile btn btn-outline-secondary" style="background-color:#5A95F3" data-id=${dog._id}>Delete ${dog.name}'s Profile</button>
+
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </section>
+
                     `
   })
   $('#view-all-profiles').html(profilesHtml)
@@ -84,7 +187,7 @@ const onIndexProfileFailure = function () {
 
 const onUpdateProfileSuccess = function (response) {
   $('#profile-update-message').html('Edit successful!')
-  $('#view-all-profiles').html('Profiles have been updated! Click "All Profiles" again to view all dog profiles.')
+  $('#view-all-profiles').html('Profiles updated! Click "All Profiles" again to view all dog profiles.')
 
   $('#profile-update-message').addClass('success')
   setTimeout(() => {
