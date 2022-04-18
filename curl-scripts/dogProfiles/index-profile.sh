@@ -1,7 +1,7 @@
 #!/bin/sh
 # sh curl-scripts/dogProfile/index-profile.sh
 
-API="http://localhost:4741"
+API="https://cryptic-shore-49973.herokuapp.com"
 URL_PATH="/dogProfiles"
 
 curl "${API}${URL_PATH}" \
