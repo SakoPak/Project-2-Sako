@@ -10,7 +10,7 @@
 # ID="62572824256007a90d00d269"
 
 
-API="http://localhost:4741"
+API="https://cryptic-shore-49973.herokuapp.com"
 URL_PATH="/dogProfiles"
 
 curl "${API}${URL_PATH}/${ID}" \
