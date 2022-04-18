@@ -15,7 +15,7 @@ Dubbed 'Strava for dogs', this app will help you track your dogs' activity and e
 
 
 ## Logging in Online
- To play the deployed version of this game, click <a href=" " target="_blank">here!</a>  
+ To play the deployed version of this game, click <a href="https://sakopak.github.io/Project-2-Sako/" target="_blank">here!</a>  
 
 
 
