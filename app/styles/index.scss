@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-    align-items:center;
+    // align-items:center;
     // background-color: #D9D4D0;
 }
 
@@ -11,6 +11,10 @@ body {
     margin: auto;
 }
 
+.navbarHeader .container {
+
+    justify-content: flex-end;
+}
 
 .nav-masthead .nav-link {
     padding: .25rem 0;
@@ -34,25 +38,53 @@ body {
     color: #fff;
     border-bottom-color: #fff;
 }
+img {
+    max-width: 100%;
+    justify-content: center;
+
+}
+
 .d-flex {
-    align-items:center;
+    align-items: center;
 
 }
 .row {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
- 
-    width: 100%;
+    justify-content: center;
+    // margin: auto;
+
+
 }
 
 .column {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    // flex-direction: column;
     flex-basis: 100%;
     flex: 1;
     margin: auto;
-    align-items:center;
     width: 50%;
+  
+
+}
+.navbarHeader .col-sm-2 {
+    justify-content: flex-start;
+
+}
+
+.left-column{
+    width: 50%;
+}
+
+.right-column {
+    width: 50%;
+}
+
+.update-profile-list {
+    flex-direction: row;
+
 }
 
 
@@ -64,13 +96,9 @@ h1 {
     font-size: 7.0em;
     margin: 20px 10px;
 }
-.card .testimonial-card {
-
-}
-
 
 .testimonial-card .card-up {
-    height: 120px;
+    height: 160px;
     overflow: hidden;
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
@@ -83,6 +111,12 @@ h1 {
     overflow: hidden;
     border: 3px solid #fff;
     border-radius: 50%;
+}
+.card-footer .btn {
+    color: black;
+}
+.card-footer .btn:hover {
+    color: #E9B8AA
 }
 
 .btn {
@@ -100,6 +134,10 @@ h1 {
     text-shadow: none;
     margin: 10px;
     
+}
+#go-homeBtn {
+
+
 }
 .card-footer {
     margin: auto;
