@@ -187,7 +187,7 @@ const onIndexProfileFailure = function () {
 
 const onUpdateProfileSuccess = function (response) {
   $('#profile-update-message').html('Edit successful!')
-  $('#view-all-profiles').html('Profiles updated! Click "All Profiles" again to view all dog profiles.')
+  $('#view-all-profiles').html('Profiles updated! Click "View All Profiles" to view updates.')
 
   $('#profile-update-message').addClass('success')
   setTimeout(() => {
