@@ -42,7 +42,7 @@ const onSignInSuccess = function (response) {
   setTimeout(() => {
     $('#sign-in-message').html('')
     $('#sign-in-message').removeClass('success')
-  }, 5000)
+  }, 3000)
   $('form').trigger('reset')
   store.user = response.user
   // $('#sign-in-success').show()
@@ -55,24 +55,24 @@ const onSignInFailure = function () {
   setTimeout(() => {
     $('#sign-in-message').html('')
     $('#sign-in-message').removeClass('success')
-  }, 5000)
+  }, 3000)
   $('form').trigger('reset')
 }
 
 const onSignOutSuccess = function () {
+  $('#sign-out-message').show()
   $('#sign-out-message').html('<p>You are signed out!</p>')
   $('#sign-out-message').addClass('success')
 
   setTimeout(() => {
     $('#sign-out-message').html('')
     $('#sign-out-message').removeClass('success')
-  }, 5000)
+  }, 3000)
   $('form').trigger('reset')
   $('#sign-in-page').show()
   // $('#landing-page').show()
   $('#sign-in-container').show()
   $('#go-homeBtn').hide()
-  $('#sign-out-pwForm').hide()
   $('#passwordFormBtn').hide()
   $('#signOut').hide()
 }
@@ -88,12 +88,13 @@ const onSignOutAgainSuccess = function () {
   $('form').trigger('reset')
   $('#home-page').hide()
   $('#all-profiles-page').hide()
-  // $('#landing-page').show()
+  $('#landing-page').show()
   $('#sign-in-container').show()
   $('#go-homeBtn').hide()
   $('#sign-out-pwForm').hide()
   $('#signOut').hide()
   $('#home-page').hide()
+  $('#passwordForm').hide()
 }
 const onSignOutAgainFailure = function () {
   $('#sign-out-message').html(
@@ -128,6 +129,7 @@ const onChangePasswordSuccess = function () {
     $('#change-password-message').removeClass('success')
   }, 5000)
   $('form').trigger('reset')
+  $('#sign-in-container').show()
 }
 
 const onChangePasswordFailure = function () {
