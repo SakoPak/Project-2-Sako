@@ -4,7 +4,6 @@ const config = require('./../config')
 const store = require('../store.js')
 
 const createProfile = function (data) {
-  console.log(data)
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/dogProfiles',
