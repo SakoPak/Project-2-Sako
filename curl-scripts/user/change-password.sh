@@ -1,11 +1,6 @@
 #!/bin/bash
 # sh curl-scripts/user/change-password.sh
 
-OLDPW="hi"
-NEWPW="goodbye"
-TOKEN="8d42a2ac7d5a0357e68104a5a24829e9"
-
-
 API="https://cryptic-shore-49973.herokuapp.com"
 URL_PATH="/change-password"
 

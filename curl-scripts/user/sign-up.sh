@@ -1,9 +1,5 @@
 # sh curl-scripts/user/sign-up.sh
 
-EMAIL="sako@angel.com"
-PASSWORD="hope"
-
-
 API="https://cryptic-shore-49973.herokuapp.com"
 URL_PATH="/sign-up"
 

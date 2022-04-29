@@ -1,14 +1,6 @@
 #!/bin/bash
 # sh curl-scripts/dogProfiles/create-profile.sh
 
-NAME="Bruno"
-AGE="6 years old"
-GENDER="Male"
-TYPE="Boxer"
-NOTES="He likes bacon."
-TOKEN="bc739d6ffef993f1a1c759731b607a5d"
-
-
 API="https://cryptic-shore-49973.herokuapp.com"
 URL_PATH="/dogProfiles"
 
