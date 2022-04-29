@@ -1,19 +1,80 @@
 @import '~bootstrap/scss/bootstrap';
 
-body {
-    // align-items:center;
-    // background-color: #D9D4D0;
-}
 
 
 .main {
-    // display:inline;
     margin: auto;
 }
 
-.navbarHeader .container {
+.d-flex {
+    align-items: center;
+}
 
+.container {
+    display: flex; 
+}
+
+.row {
+    justify-content: center;
+    flex-direction: row;
+}
+
+
+.column {
+    align-items: center;
+    flex: 1;
+    margin: auto;
+    width: 50%;
+}
+
+.nav-flex-container {
+    display:flex;
+    flex-direction: row;
+    padding: 70px 70px 10px 90px;
+    max-width: 725px;
+}
+
+.nav-column-1 {
+    width: 50%;
+    flex: 1;
+}
+
+.nav-column-2 {
+    width: 50%;
+ 
+}
+.contact-bar {
+    display: inline;
+    justify-content: left;
+}
+.git {
+    padding: 10px;
+    justify-content: center;
+
+}
+.linked-in {
+    padding: 10px;
+    justify-content: center;
+}
+
+.left-column {
+    width: 50%;
+}
+
+.right-column {
+    width: 50%;
+}
+#footer {
+    margin: 20x;
+    padding: 50px;
+    font-size: small;
+}
+.navbarHeader .container {
     justify-content: flex-end;
+}
+.navbar-brand  {
+    justify-content: space-between;
+    padding: 10px;
 }
 
 .nav-masthead .nav-link {
@@ -41,49 +102,14 @@ body {
 img {
     max-width: 100%;
     justify-content: center;
-
 }
 
-.d-flex {
+.card-body {
+    flex-direction: column;
+    color: black;
     align-items: center;
-
-}
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    // margin: auto;
-
-
-}
-
-.column {
-    display: flex;
-    align-items: center;
-    // flex-direction: column;
-    flex-basis: 100%;
-    flex: 1;
-    margin: auto;
-    width: 50%;
-  
-
-}
-.navbarHeader .col-sm-2 {
-    justify-content: flex-start;
-
-}
-
-.left-column{
-    width: 50%;
-}
-
-.right-column {
-    width: 50%;
-}
-
-.update-profile-list {
-    flex-direction: row;
+    justify-content: space-around;
+    min-width: 280px;
 
 }
 
@@ -132,13 +158,16 @@ h1 {
 .btn-secondary:focus {
     color: #43BFB1;
     text-shadow: none;
-    margin: 10px;
-    
+    margin: 10px;  
 }
-#go-homeBtn {
 
-
-}
 .card-footer {
     margin: auto;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1000px) {
+    form {
+        justify-content: center;
+    }
 }
