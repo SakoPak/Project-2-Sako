@@ -1,9 +1,8 @@
 'use strict'
 
 const store = require('../store.js')
-const dogEvents = require('./events.js')
 
-const onCreateProfileSuccess = function () {
+const onCreateProfileSuccess = function (response) {
   $('.create-profile-message').show()
   $('.create-profile-message').html('<p>Profile has been created!</p>')
   $('form').trigger('reset')
@@ -14,7 +13,6 @@ const onCreateProfileFailure = function () {
 }
 
 const onViewProfileSuccess = function (response) {
-  console.log(response)
   const profileHtml = `
                      <div class="row d-flex justify-content-center">
                           <div class="col-md-10 col-xl-8 text-center">
@@ -41,16 +39,16 @@ const onViewProfileSuccess = function (response) {
 
                                   <div id=${response.dog._id}>
 
-                                      <h4 class="mb-4">Name: ${response.dog.name}</h4> 
+                                      <h4 class="mb-4">Name: ${response.dog.name}</h4>
                                       <hr />
                                       <p class="dark-grey-text mt-4">
                                         <div>
                                           <p>Gender: ${response.dog.gender}</p>
-                                          <p>Birthday: ${response.dog.age}</p> 
+                                          <p>Birthday: ${response.dog.age}</p>
                                           <p>Type: ${response.dog.type}</p>
-                                          <p>Notes: ${response.dog.notes}</p> 
+                                          <p>Notes: ${response.dog.notes}</p>
                                         </div>
-                                      </p>      
+                                      </p>
                                   </div>
                                     <br>
                                       <div class="card-footer">
@@ -58,12 +56,12 @@ const onViewProfileSuccess = function (response) {
                                       </div>
                                 </p>
                               </form>
-                              
+
                             </div>
                           </div>
                         </div>
                     `
-  $('#view-profile').html(profileHtml)
+  $('#view-all-profiles').html(profileHtml)
   $('form').trigger('reset')
 }
 
@@ -75,7 +73,6 @@ const onIndexProfileSuccess = function (response) {
   $('#all-profiles-page').show()
   $('#create-form').hide()
   const indexProfiles = response.dog
-  console.log(response)
 
   let profilesHtml = ''
 
@@ -94,12 +91,12 @@ const onIndexProfileSuccess = function (response) {
                             <div class="card testimonial-card">
                               <div class="card-up" style="background-color: #E9B8AA;"></div>
                               <div class="avatar mx-auto bg-white">
-                                <img src="../images/Dog.png" class="rounded-circle img-fluid" />
+                                <img src="../public/images/Dog.png" class="rounded-circle img-fluid" />
                               </div>
 
                               <div class="card-body text-dark">
 
-                              <form class="viewProfiles">
+                              <form class="viewProfiles" data-id=${dog._id}>
                                 <h4 class="mb-4">${dog.name}</h4>
                                 <hr/>
 
@@ -117,68 +114,30 @@ const onIndexProfileSuccess = function (response) {
                                   
                                     </div>
                                     <br>
-                                     
-                                      
-                                  
+                                        <div class="card-button">
+                                          <button type="form" class="update-button btn btn-outline-secondary" style="background-color:#5A95F3" data-id=${dog._id}>Update</button>
+                                        </div>
                                     </div>
+                                       
                                     </p>
                                   </form>
-                              <p class="create-profile-message"></p>
+                                        <div class="card-button">
+                                            <button class="delete-profile btn btn-outline-secondary" style="background-color:#E9B8AA"; data-id=${dog._id}>Delete</button>
+                                          </div>
+                                          <br>
+                                           <p class="text-dark fs-6 text-wrap" id="profile-delete-message"></p>
+                                          <br>
+                           
                             </div>
                           </div>
                         </div>
                       </div>
-      
-                      <!-- UPDATE PROFILE FORM -->
-                    <section class="update-profile-list">
-
-                     <div class="row d-flex justify-content-center">
-                          <div class="col-md-10 col-xl-8 text-center">
-                            <h3 class="mb-4"></h3>
-                            <p class="mb-4 pb-2 mb-md-5 pb-md-0"></p>                         
-                          </div>
-                      </div>
-                        <div class="row text-center">
-                          <div class="col-md-4 mb-5 mb-md-0"> 
-                            <div class="card testimonial-card">
-                              <div class="card-up" style="background-color:#5A95F3;"></div>
-                              <div class="avatar mx-auto bg-white">
-                                <img src="../images/Dog.png" class="rounded-circle img-fluid" />
-                              </div>
-                              <div class="card-body">
-
-                            <form class="update-profile-list" data-id=${dog._id}>
-
-                                <hr/>
-
-                                <p class="dark-grey-text mt-4"></p>
-
-                                  <div id=${dog._id}>
-                            
-                                      <input name="dog[name]" type="text" placeholder="Dog Name" required>
-                                      <input name="dog[age]" type="text" placeholder="00/00/00" required>
-                                      <input name="dog[gender]" type="text" placeholder="Gender" required>
-                                      <input name="dog[type]" type="text" placeholder="Labrador" required>
-                                      <textarea name="dog[notes]" type="text" placeholder="Notes"></textarea>
-                                    <button type="submit" class="update-button btn btn-outline-secondary" style="background-color:#5A95F3" data-id=${dog._id}>Update ${dog.name}'s profile </button>
-                      
-                              </form>
-                              <button class="delete-profile btn btn-outline-secondary" style="background-color:#5A95F3" data-id=${dog._id}>Delete ${dog.name}'s Profile</button>
-
-                              </div>
-                            </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      </section>
-
+    
                     `
   })
   $('#view-all-profiles').html(profilesHtml)
-  // $('form').trigger('reset')
-  // $('form').trigger('update')
-  // $('#error-message').text('')
+
+  $('form').trigger('reset')
 }
 
 const onIndexProfileFailure = function () {
@@ -186,9 +145,8 @@ const onIndexProfileFailure = function () {
 }
 
 const onUpdateProfileSuccess = function (response) {
-  $('#profile-update-message').html('Edit successful!')
-  $('#view-all-profiles').html('Profiles updated! Click "View All Profiles" to view updates.')
-
+  $('#profile-update-message').html('Update saved! Click "View All Profiles" to view updates.')
+  $('#view-all-profiles').html('')
   $('#profile-update-message').addClass('success')
   setTimeout(() => {
     $('#profile-update-message').html('')
@@ -200,25 +158,41 @@ const onUpdateProfileSuccess = function (response) {
 
 const onUpdateProfileFailure = function () {
   $('#error-message').text('Failure while trying to update profile.')
+
+  $('#error-message').addClass('success')
+
+  setTimeout(() => {
+    $('#error-message').html('')
+    $('#error-message').removeClass('success')
+  }, 3000)
+
+  $('form').trigger('reset')
 }
 
 const onDeleteProfileSuccess = function () {
-  $('#profile-delete-message').html('Profile successfully deleted.')
-  $('#view-all-profiles').html(
-    'Profiles have changed! Click "All Profiles" again to view all dog profiles.'
-  )
+  $('#profile-delete-message').html('Delete success! Click "All Profiles" to view updated list.')
+
   $('#profile-delete-message').addClass('success')
 
   setTimeout(() => {
     $('#profile-delete-message').html('')
     $('#profile-delete-message').removeClass('success')
-  }, 5000)
+  }, 3000)
 
   $('form').trigger('reset')
 }
 
 const onDeleteProfileFailure = function () {
   $('#error-message').text('Failure while trying to delete profile.')
+
+  $('#error-message').addClass('success')
+
+  setTimeout(() => {
+    $('#error-message').html('')
+    $('#error-message').removeClass('success')
+  }, 3000)
+
+  $('form').trigger('reset')
 }
 
 module.exports = {
