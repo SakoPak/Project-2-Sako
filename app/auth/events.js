@@ -2,7 +2,6 @@
 const getFormFields = require('../../lib/get-form-fields')
 const authApi = require('./api.js')
 const authUi = require('./ui.js')
-// const store = require('../store.js')
 
 const onSignUp = (event) => {
   event.preventDefault()
@@ -18,8 +17,7 @@ const onSignIn = (event) => {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
-
+ 
   authApi
     .signIn(data)
     .then((response) => authUi.onSignInSuccess(response))
@@ -37,8 +35,7 @@ const onChangePassword = (event) => {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
-
+ 
   authApi
     .changePassword(data)
     .then((response) => authUi.onChangePasswordSuccess(response))
@@ -57,9 +54,12 @@ const onShowSignUp = () => {
   $('.sign-up-btn').hide()
 }
 
-const onShowUpdateForm = () => {
-  $('#create-form').show()
-  $('#sign-in-container').hide()
+const onShowUpdateForm = (event) => {
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  $('#all-profiles-page').hide()
+  $('.update-profile-list').show()
+  $('.update-profile-list').attr('data-id', id)
 }
 const onShowAllProfiles = () => {
   $('#all-profiles-page').show()
@@ -67,6 +67,7 @@ const onShowAllProfiles = () => {
 
 const onShowPWForm = () => {
   $('#passwordForm').show()
+  $('#go-homeBtn').hide()
 }
 
 const onShowHomePage = () => {
