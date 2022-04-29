@@ -2,12 +2,10 @@
 const authEvents = require('./auth/events.js')
 const dogEvents = require('./dogAuth/events.js')
 
-// use require without a reference to ensure a file is bundled
-// require('./example')
-
 $(() => {
   $('#sign-up-container').hide()
   $('#sign-in-container').hide()
+  $('#sign-out-again').hide()
   $('#go-to-sign-in2').on('click', authEvents.onShowSignIn)
   $('#signUpBtn').on('click', authEvents.onShowSignUp)
 
@@ -18,6 +16,7 @@ $(() => {
   $('#passwordForm').hide()
   $('#passwordFormBtn').hide()
   $('#go-homeBtn').hide()
+  $('.update-profile-list').hide()
 
   $('#go-to-add-profile').on('click', authEvents.onShowUpdateForm)
   $('#go-to-all-profiles').on('click', authEvents.onShowAllProfiles)
@@ -31,8 +30,16 @@ $(() => {
   $('#createProfile').on('submit', dogEvents.onCreateProfile)
   $('.create-profile-message').on('submit', dogEvents.onCreateProfile)
   $('#all-profiles').on('click', dogEvents.onIndexProfiles)
-  $('#view-all-profiles').on('submit', '.update-profile-list', dogEvents.onUpdateProfile)
+  $('#view-all-profiles').on(
+    'submit',
+    '.viewProfiles',
+    authEvents.onShowUpdateForm
+  )
   $('#view-all-profiles').on('click', '.delete-profile',
     dogEvents.onDeleteProfile)
+  $('.update-profile-list').on('submit', dogEvents.onUpdateProfile)
+
   $('#sign-out-again').on('click', authEvents.onSignOutAgain)
+  $('#all-profiles').on('click', dogEvents.onHideUpdateForm)
 })
+
