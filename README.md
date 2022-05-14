@@ -16,7 +16,7 @@ A digital notebook for your furry friends, this app will help you track your dog
 ## Logging in Online
  To log in and get started, click <a href="https://sakopak.github.io/Project-2-Sako/" target="_blank">here!</a>  
 
-## View Back End Repo <a href"https://github.com/SakoPak/Project-2-Sako-API" target="_blank">HERE!</a>
+View Back End Repo <a href="https://github.com/SakoPak/Project-2-Sako-API" target="_blank">HERE!</a>
 
 ## Wireframes
 
