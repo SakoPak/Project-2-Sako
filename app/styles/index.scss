@@ -35,7 +35,6 @@
 }
 
 .nav-column-1 {
-    width: 50%;
     flex: 1;
 }
 
@@ -58,7 +57,7 @@
 }
 
 .left-column {
-    width: 50%;
+    width: 70%;
 }
 
 .right-column {
@@ -166,8 +165,25 @@ h1 {
     justify-content: center;
 }
 
-@media screen and (max-width: 1000px) {
-    form {
+// @media screen and (max-width: 1000px) {
+//     form {
+//         justify-content: center;
+//     }}
+
+@media screen and (max-width: 375px) {
+    .nav-flex-container {
+        width: 100%;
+
+    }
+    #sign-in-container {
+        display: flex;
         justify-content: center;
+        // flex-direction: row;
+    }
+    #signIn {
+        flex-direction: column;
+    }
+    #go-to-sign-in {
+        flex-direction: column;
     }
 }
