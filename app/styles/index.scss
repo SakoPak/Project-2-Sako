@@ -1,0 +1,206 @@
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    background-color: #d8e2dc;
+    color: #354f52;
+}
+
+.main {
+    margin: auto;
+    background-color: #d8e2dc;
+  
+}
+
+.d-flex {
+    align-items: center;
+}
+
+.container {
+    display: flex; 
+}
+
+.row {
+    justify-content: center;
+    flex-direction: row;
+}
+
+
+.column {
+    align-items: center;
+    flex: 1;
+    margin: auto;
+    width: 50%;
+}
+
+#navbar-btn {
+    background-color: #cad2c5;
+}
+
+span.navbar-toggler {
+    color: black;
+}
+
+.nav-flex-container {
+    display:flex;
+    flex-direction: row;
+    padding: 70px 70px 10px 90px;
+    max-width: 725px;
+}
+
+.nav-column-1 {
+    flex: 1;
+}
+
+.nav-column-2 {
+    width: 50%;
+ 
+}
+.contact-bar {
+    display: inline;
+    justify-content: left;
+}
+.git {
+    padding: 10px;
+    justify-content: center;
+
+}
+.linked-in {
+    padding: 10px;
+    justify-content: center;
+}
+
+.left-column {
+    width: 70%;
+}
+
+.right-column {
+    width: 50%;
+}
+#footer {
+    margin: 20x;
+    padding: 50px;
+    font-size: small;
+}
+.navbarHeader .container {
+    justify-content: flex-end;
+    background-color: #cad2c5;
+}
+.navbar-brand  {
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.nav-masthead .nav-link {
+    padding: .25rem 0;
+    font-weight: 700;
+    color: whitesmoke;
+    background-color: transparent;
+    border-bottom: .25rem solid transparent;
+    margin-top: 20px;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+    border-bottom-color: rgba(179, 188, 76, 0.25);
+}
+
+.nav-masthead .nav-link+.nav-link {
+    margin-left: 1rem;
+}
+
+.nav-masthead .active {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+img {
+    max-width: 100%;
+    justify-content: center;
+}
+
+.card-body {
+    flex-direction: column;
+    color: black;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 280px;
+
+}
+
+
+h1 {
+    font-size: 7.0em;
+    margin: 20px 10px;
+}
+.px-3 h1 {
+    font-size: 7.0em;
+    margin: 20px 10px;
+}
+
+.testimonial-card .card-up {
+    height: 160px;
+    overflow: hidden;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    color: black;
+}
+
+.testimonial-card .avatar {
+    width: 110px;
+    margin-top: -60px;
+    overflow: hidden;
+    border: 3px solid #fff;
+    border-radius: 50%;
+}
+.card-footer .btn {
+    color: black;
+}
+.card-footer .btn:hover {
+    color: #E9B8AA
+}
+
+.btn {
+    color: #354f52;
+}
+
+.btn hover {
+    color: white;
+}
+
+#go-to-sign-in2 {
+    color: #354f52;
+}
+
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+    color: #43BFB1;
+    text-shadow: none;
+    margin: 10px;  
+}
+
+.card-footer {
+    margin: auto;
+    justify-content: center;
+}
+
+#footer {
+    color: #354f52;
+}
+
+@media screen and (max-width: 375px) {
+    .nav-flex-container {
+        width: 100%;
+
+    }
+    #sign-in-container {
+        display: flex;
+        justify-content: center;
+        // flex-direction: row;
+    }
+    #signIn {
+        flex-direction: column;
+    }
+    #go-to-sign-in {
+        flex-direction: column;
+    }
+}
