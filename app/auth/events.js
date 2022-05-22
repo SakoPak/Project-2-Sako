@@ -17,7 +17,7 @@ const onSignIn = (event) => {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
- 
+
   authApi
     .signIn(data)
     .then((response) => authUi.onSignInSuccess(response))
@@ -35,7 +35,7 @@ const onChangePassword = (event) => {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
- 
+
   authApi
     .changePassword(data)
     .then((response) => authUi.onChangePasswordSuccess(response))
@@ -71,8 +71,8 @@ const onShowPWForm = () => {
 }
 
 const onShowHomePage = () => {
-  $('#home-page').show()
   $('#landing-page').hide()
+  $('#home-page').show()
   $('#create-form').show()
 }
 

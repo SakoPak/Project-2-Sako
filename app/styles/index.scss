@@ -1,9 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 
-
+body {
+    background-color: #d8e2dc;
+    color: #354f52;
+}
 
 .main {
     margin: auto;
+    background-color: #d8e2dc;
+  
 }
 
 .d-flex {
@@ -25,6 +30,14 @@
     flex: 1;
     margin: auto;
     width: 50%;
+}
+
+#navbar-btn {
+    background-color: #cad2c5;
+}
+
+span.navbar-toggler {
+    color: black;
 }
 
 .nav-flex-container {
@@ -70,6 +83,7 @@
 }
 .navbarHeader .container {
     justify-content: flex-end;
+    background-color: #cad2c5;
 }
 .navbar-brand  {
     justify-content: space-between;
@@ -145,11 +159,15 @@ h1 {
 }
 
 .btn {
-    color: white;
+    color: #354f52;
 }
 
 .btn hover {
     color: white;
+}
+
+#go-to-sign-in2 {
+    color: #354f52;
 }
 
 .btn-secondary,
@@ -165,10 +183,9 @@ h1 {
     justify-content: center;
 }
 
-// @media screen and (max-width: 1000px) {
-//     form {
-//         justify-content: center;
-//     }}
+#footer {
+    color: #354f52;
+}
 
 @media screen and (max-width: 375px) {
     .nav-flex-container {

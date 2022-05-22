@@ -78,7 +78,7 @@ const onIndexProfileSuccess = function (response) {
 
   indexProfiles.forEach(dog => {
     profilesHtml += `
-                    <div class="text-center justify-content-center text-grey bg-dark">
+                    <div class="text-center justify-content-center text-grey">
                        <div class="row d-flex justify-content-center">
                           <div class="col-md-10 col-xl-8 text-center">
                             <h3 class="mb-4"></h3>
